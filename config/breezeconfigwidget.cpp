@@ -47,7 +47,7 @@ namespace Breeze
 
         // track ui changes
         connect( m_ui.titleAlignment, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()) );
-        connect( m_ui.buttonSize, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()) );
+        connect( m_ui.buttonSize, QOverload<double>::of(&QDoubleSpinBox::valueChanged), [=](double /*i*/){updateChanged();} );
         connect( m_ui.buttonSpacing, QOverload<int>::of(&QSpinBox::valueChanged), [=](int /*i*/){updateChanged();} );
         connect( m_ui.buttonPadding, SIGNAL(valueChanged(int)), SLOT(updateChanged()) );
         connect( m_ui.buttonHOffset, SIGNAL(valueChanged(int)), SLOT(updateChanged()) );
@@ -92,7 +92,7 @@ namespace Breeze
 
         // assign to ui
         m_ui.titleAlignment->setCurrentIndex( m_internalSettings->titleAlignment() );
-        m_ui.buttonSize->setCurrentIndex( m_internalSettings->buttonSize() );
+        m_ui.buttonSize->setValue( m_internalSettings->buttonSize() );
         m_ui.buttonSpacing->setValue( m_internalSettings->buttonSpacing() );
         m_ui.buttonPadding->setValue( m_internalSettings->buttonPadding() );
         m_ui.buttonHOffset->setValue( m_internalSettings->buttonHOffset() );
@@ -142,7 +142,7 @@ namespace Breeze
 
         // apply modifications from ui
         m_internalSettings->setTitleAlignment( m_ui.titleAlignment->currentIndex() );
-        m_internalSettings->setButtonSize( m_ui.buttonSize->currentIndex() );
+        m_internalSettings->setButtonSizeMod( m_ui.buttonSize->value() );
         m_internalSettings->setButtonSpacing( m_ui.buttonSpacing->value() );
         m_internalSettings->setButtonPadding( m_ui.buttonPadding->value() );
         m_internalSettings->setButtonHOffset( m_ui.buttonHOffset->value() );
@@ -206,7 +206,7 @@ namespace Breeze
 
         // assign to ui
         m_ui.titleAlignment->setCurrentIndex( m_internalSettings->titleAlignment() );
-        m_ui.buttonSize->setCurrentIndex( m_internalSettings->buttonSize() );
+        m_ui.buttonSize->setValue( m_internalSettings->buttonSize() );
         m_ui.buttonSpacing->setValue( m_internalSettings->buttonSpacing() );
         m_ui.buttonPadding->setValue( m_internalSettings->buttonPadding() );
         m_ui.buttonHOffset->setValue( m_internalSettings->buttonHOffset() );
@@ -249,7 +249,7 @@ namespace Breeze
         bool modified( false );
 
         if( m_ui.titleAlignment->currentIndex() != m_internalSettings->titleAlignment() ) modified = true;
-        else if( m_ui.buttonSize->currentIndex() != m_internalSettings->buttonSize() ) modified = true;
+        else if( m_ui.buttonSize->value() != m_internalSettings->buttonSize() ) modified = true;
         else if( m_ui.buttonSpacing->value() != m_internalSettings->buttonSpacing() ) modified = true;
         else if ( m_ui.buttonPadding->value() != m_internalSettings->buttonPadding() ) modified = true;
         else if ( m_ui.buttonHOffset->value() != m_internalSettings->buttonHOffset() ) modified = true;

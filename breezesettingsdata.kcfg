@@ -89,15 +89,8 @@
     </entry>
 
     <!-- button size -->
-    <entry name="ButtonSize" type="Enum">
-      <choices>
-          <choice name="ButtonTiny" />
-          <choice name="ButtonSmall" />
-          <choice name="ButtonDefault" />
-          <choice name="ButtonLarge" />
-          <choice name="ButtonVeryLarge" />
-      </choices>
-      <default>ButtonDefault</default>
+    <entry name="ButtonSizeMod" type = "Double">
+      <default>1</default>
     </entry>
 
     <!-- button style -->

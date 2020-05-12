@@ -919,7 +919,7 @@ namespace Breeze
     int Decoration::buttonHeight() const
     {
         const int baseSize = settings()->gridUnit();
-        switch( m_internalSettings->buttonSize() )
+        /*switch( m_internalSettings->buttonSize() )
         {
             case InternalSettings::ButtonTiny: return baseSize;
             case InternalSettings::ButtonSmall: return baseSize*1.5;
@@ -927,8 +927,9 @@ namespace Breeze
             case InternalSettings::ButtonDefault: return baseSize*2;
             case InternalSettings::ButtonLarge: return baseSize*2.5;
             case InternalSettings::ButtonVeryLarge: return baseSize*3.5;
-        }
-
+            case InternalSettings::ButtonThiago: return baseSize*1.85;
+        }*/
+        return baseSize * m_internalSettings->buttonSize();
     }
 
     //________________________________________________________________
