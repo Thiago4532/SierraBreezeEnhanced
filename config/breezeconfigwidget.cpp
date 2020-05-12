@@ -142,7 +142,7 @@ namespace Breeze
 
         // apply modifications from ui
         m_internalSettings->setTitleAlignment( m_ui.titleAlignment->currentIndex() );
-        m_internalSettings->setButtonSizeMod( m_ui.buttonSize->value() );
+        m_internalSettings->setButtonSize( m_ui.buttonSize->value() );
         m_internalSettings->setButtonSpacing( m_ui.buttonSpacing->value() );
         m_internalSettings->setButtonPadding( m_ui.buttonPadding->value() );
         m_internalSettings->setButtonHOffset( m_ui.buttonHOffset->value() );

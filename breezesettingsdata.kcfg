@@ -89,7 +89,7 @@
     </entry>
 
     <!-- button size -->
-    <entry name="ButtonSizeMod" type = "Double">
+    <entry name="ButtonSize" type = "Double">
       <default>1</default>
     </entry>
 
